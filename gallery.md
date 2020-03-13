@@ -5,9 +5,7 @@ permalink: /gallery/
 ---
 
 
-
-This project is about the creation of an Integrated Geodynamic Earth Model for t
-
+Videos and images:
 
 {% raw %}
 $$\int_\Omega \nabla u \cdot \nabla v~dx = \int_\Omega fv~dx$$
