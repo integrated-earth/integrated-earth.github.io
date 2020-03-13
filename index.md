@@ -4,3 +4,10 @@
 
 layout: home
 ---
+
+welcome, this is the top text.
+
+Here is a picture:
+
+![logo](images/mesh-2d-logo.png)
+
