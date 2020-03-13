@@ -7,9 +7,8 @@ layout: home
 
 welcome, this is the top text.
 
-Here are some images:
-
-# ![logo](images/mesh-2d-logo.png)
+Here is a logo:
 
 ![logo](images/mesh-2db.png)
 
+***
