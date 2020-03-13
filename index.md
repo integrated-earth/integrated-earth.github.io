@@ -5,6 +5,8 @@
 layout: home
 ---
 
+# Geodynamic Integrated Earth Models
+
 welcome, this is the top text.
 
 Here is a logo:
