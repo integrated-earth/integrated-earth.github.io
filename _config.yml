@@ -22,8 +22,8 @@ title: Geodynamic Integrated Earth Models
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   NSF funded project to generate geodynamic integrated earth models.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://tjhei.github.io/integrated-earth/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/integrated-earth" # the subpath of your site, e.g. /blog
+url: "https://tjhei.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  tjhei
 
