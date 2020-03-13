@@ -1,1 +1,6 @@
 theme: jekyll-theme-tactile
+title: Geodynamic Integrated Earth Models
+
+markdown: kramdown
+gems:
+  - jekyll-feed
