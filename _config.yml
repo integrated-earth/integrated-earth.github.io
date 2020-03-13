@@ -30,7 +30,7 @@ github_username:  tjhei
 # Build settings
 #theme: jekyll-theme-tactile
 theme: jekyll-theme-cayman
-theme: minimal
+theme: minima
 plugins:
   - jekyll-feed
 
