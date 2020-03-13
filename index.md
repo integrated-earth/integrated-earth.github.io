@@ -3,7 +3,11 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+title: Geodynamic Integrated Earth Models
+exclude: true
 ---
+
+# Geodynamic Integrated Earth Models
 
 welcome, this is the top text.
 
