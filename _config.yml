@@ -29,8 +29,8 @@ github_username:  tjhei
 
 # Build settings
 #theme: jekyll-theme-tactile
-#theme: jekyll-theme-cayman
-theme: minima
+theme: jekyll-theme-cayman
+#theme: minima
 plugins:
   - jekyll-feed
 
