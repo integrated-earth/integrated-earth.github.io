@@ -11,8 +11,6 @@ exclude: true
 
 welcome, this is the top text.
 
-Here is a logo:
-
-![logo](images/mesh-2db.png)
+![logo](images/logo.png)
 
 ***
