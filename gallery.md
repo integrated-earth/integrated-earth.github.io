@@ -4,8 +4,7 @@ title: Gallery
 permalink: /gallery/
 ---
 
-
-Videos and images:
+This website will collect images and videos produced as part of this project.
 
 {% raw %}
 $$\int_\Omega \nabla u \cdot \nabla v~dx = \int_\Omega fv~dx$$

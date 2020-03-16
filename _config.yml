@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Geodynamic Integrated Earth Models
+title: Integrated Geodynamic Earth Models
 email: heister@clemson.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  NSF funded project to generate geodynamic integrated earth models.
+  NSF funded project to generate integrated geodynamic Earth models.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://integrated-earth.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
