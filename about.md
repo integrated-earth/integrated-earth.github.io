@@ -1,11 +1,8 @@
 ---
 layout: page
-title: About
+title: What this project is about
 permalink: /about/
 ---
-
-
-## What this project is about
 
 For decades, the geosciences community has dreamed of and worked
 towards building simulations that can resolve the time and length
@@ -66,8 +63,3 @@ surface processes modify temporal variations in subduction
 dynamics. Finally, this project will lead to the development of new
 tools for the visualization of these simulation results, and use them
 for a variety of outreach activities.
-
----
-
-You can find the source code for Minima at GitHub:
-[minima](https://github.com/jekyll/minima)
