@@ -7,15 +7,15 @@ title: Integrated Geodynamic Earth Models
 exclude: true
 ---
 
+This is the project website for the NSF-sponsored project "[Collaborative
+Research: Development and Application of a Framework for Integrated Geodynamic
+Earth Models](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925595&HistoricalAwards=false)".
+
 {:refdef: style="text-align: center;"}
 ![Logo](images/logo.png){:width="250px"}
 {: refdef}
 
-## What we want to do
-
-This is the project website for the NSF-sponsored project "[Collaborative
-Research: Development and Application of a Framework for Integrated Geodynamic
-Earth Models](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925595&HistoricalAwards=false)".
+## Goals
 
 **_Mission:_** To create three-dimensional, integrated geodynamic
 reference models for the Earth above the core-mantle boundary, that
