@@ -12,7 +12,7 @@ Research: Development and Application of a Framework for Integrated Geodynamic
 Earth Models](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925595&HistoricalAwards=false)".
 
 {:refdef: style="text-align: center;"}
-![Logo](images/logo.png){:width="250px"}
+![Logo](images/logo-medium.png){:width="250px"}
 {: refdef}
 
 ## Goals
