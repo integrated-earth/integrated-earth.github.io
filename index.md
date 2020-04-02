@@ -13,16 +13,16 @@ exclude: true
 
 ## About
 
-This is the project website for the [NSF sponsored project "Collaborative
+This is the project website for the NSF-sponsored project "[Collaborative
 Research: Development and Application of a Framework for Integrated Geodynamic
-Earth Models"](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925595&HistoricalAwards=false).
+Earth Models](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925595&HistoricalAwards=false)".
 
-*Mission:* To create three-dimensional, integrated geodynamic
+**_Mission:_** To create three-dimensional, integrated geodynamic
 reference models for the Earth above the core-mantle boundary, that
 can then be used for the accurate forward simulation of the Earth
 state on time scales of millions of years.
 
-*Vision:* For decades, Earth scientists have dreamed of building
+**_Vision:_** For decades, Earth scientists have dreamed of building
 computational simulators that can predict the motion of material
 inside and on the surface of Earth on long time scales. To realize
 this dream, we need to have an accurate characterization of Earth's
