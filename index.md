@@ -13,9 +13,9 @@ exclude: true
 
 ## About
 
-This is the project website for the NSF sponsored project "Collaborative
+This is the project website for the [NSF sponsored project "Collaborative
 Research: Development and Application of a Framework for Integrated Geodynamic
-Earth Models".
+Earth Models"](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925595&HistoricalAwards=false).
 
 The goal of the project is the creation of integrated geodynamic Earth models
 to provide 3d reference states that include data from tomography models,
