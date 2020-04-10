@@ -11,7 +11,7 @@ permalink: /people/
 
 | Timo Heister | Tony Lowry | John Naliboff | Derek Schutt |
 |:---:|:---:|:---:|:---:|
-|  ![Timo Heister](../images/timo-heister.jpg){:width="100px"} <br> Clemson University <br> [homepage](http://www.math.clemson.edu/~heister/) | | | |
+|  ![Timo Heister](../images/timo-heister.jpg){:width="100px"} <br> Clemson University <br> [homepage](http://www.math.clemson.edu/~heister/) | | ![John Naliboff](../images/john-naliboff.png){:width="100px"} <br> New Mexico Tech <br> [homepage](https://geodynamics.org/cig/about/people/profile-naliboff/) | | | |
 
 current postdocs and students:
 - Thomas C. Clevenger
