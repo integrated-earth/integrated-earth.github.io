@@ -7,7 +7,7 @@ permalink: /people/
 
 | Wolfgang Bangerth | Paul Bremner | Juliane Dannberg | Rene Gassmoeller |
 |:---:|:---:|:---:|:---:|
-| ![Wolfgang Bangerth](../images/wolfgang-bangerth.png){:width="175px"} <br> Colorado State University <br> [homepage](https://www.math.colostate.edu/~bangerth) | ![Paul Bremner](../images/PaulBremner.jpg){:width="125px"} <br> University of Florida and St. Johns River Water Management District <br> |  ![Juliane Dannberg](../images/juliane-dannberg.jpg){:width="100px"} <br> University of Florida <br> [homepage](https://jdannberg.github.io/)| |
+| ![Wolfgang Bangerth](../images/wolfgang-bangerth.png){:width="175px"} <br> Colorado State University <br> [homepage](https://www.math.colostate.edu/~bangerth) | ![Paul Bremner](../images/PaulBremner.jpg){:width="125px"} <br> University of Florida  and  St. Johns River Water  Management District <br> |  ![Juliane Dannberg](../images/juliane-dannberg.jpg){:width="100px"} <br> University of Florida <br> [homepage](https://jdannberg.github.io/)| |
 
 | Timo Heister | Tony Lowry | John Naliboff | Derek Schutt |
 |:---:|:---:|:---:|:---:|
