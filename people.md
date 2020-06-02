@@ -14,7 +14,9 @@ permalink: /people/
 |  ![Timo Heister](../images/timo-heister.jpg){:width="100px"} <br> Clemson University <br> [homepage](http://www.math.clemson.edu/~heister/) | | ![John Naliboff](../images/john-naliboff.jpg){:width="100px"} <br> New Mexico Tech <br> [homepage](https://geodynamics.org/cig/about/people/profile-naliboff/) | |
 
 current postdocs and students:
-- Thomas C. Clevenger
 
+| Thomas C. Clevenger | Arushi Saxena |
+|:---:|:---:|
+| | ![Arushi Saxena](../images/arushi-saxena.png){:width="175px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) |
 
 former members:
