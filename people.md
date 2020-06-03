@@ -17,6 +17,6 @@ current postdocs and students:
 
 | Thomas C. Clevenger | Arushi Saxena |
 |:---:|:---:|
-| | ![Arushi Saxena](../images/arushi-saxena.png){:width="175px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) |
+| | ![Arushi Saxena](../images/arushi-saxena.png){:width="100px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) |
 
 former members:
