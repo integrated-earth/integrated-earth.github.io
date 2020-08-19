@@ -12,7 +12,7 @@ For this experiment, we consider a stationary test benchmark in a unit cube
 that is part of ASPECT, see
 [nsinker](https://github.com/geodynamics/aspect/tree/master/benchmarks/nsinker).
 
-As part of this NSF funded project https://integrated-earth.github.io/, we
+As part of [this NSF funded project](https://integrated-earth.github.io/), we
 are evaluating how sampling unstructured data to a structured mesh works, and
 how storage and rendering of this structured data compares to the original
 unstructured output produced by ASPECT and the underlying
@@ -105,7 +105,7 @@ for an unstructured mesh.
 Second, surface rendering is very fast for both methods (interactive
 framerates even on a laptop without GPU rendering).
 
-Third, file sizes for structured meshes quickly become very large but momery
+Third, file sizes for structured meshes quickly become very large but memory
 consumption inside ParaView is very efficient.
 
 # float vs double netCDF/hdf5
