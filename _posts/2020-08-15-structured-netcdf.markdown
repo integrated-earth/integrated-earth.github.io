@@ -171,3 +171,5 @@ II. Novel Selection Filters in Arbitrary Dimension
 CPU Ray Tracing of Tree-Based Adaptive Mesh Refinement Data
 Computer Graphics Forum, 2020.](https://dx.doi.org/10.1111/cgf.13958)
 
+- [About netCDF compression](https://www.unidata.ucar.edu/blogs/developer/en/entry/netcdf_compression)
+
