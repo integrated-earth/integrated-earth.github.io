@@ -19,8 +19,8 @@ the Earth sciences and computing, we are finally at a point where it
 is possible to develop computational models of the Earth from the deep
 mantle to the surface. This project is aimed at developing a framework for
 building a Geodynamic Earth Models, based on the widely used community
-modeling code ASPECT that the PIs have been building for the past 8
-years. These simulations have the potential to provide enormous
+modeling code ASPECT that the PIs have been building since 2011. These
+simulations have the potential to provide enormous
 insight into a wide range of topics, including temporal and spatial
 variations in the motion and deformation of tectonic plates, the flow
 of magma and the cycling of water through the Earth's interior, the
@@ -50,7 +50,7 @@ simulations will use this detailed description of Earth's physical
 state to determine how brittle and ductile rheology controls the
 partitioning of deformation and fault interaction within observed
 plate boundaries. Building on the Starting Earth Model and global
-simulations, globally embedded regional simulations will allow it to
+simulations, globally embedded regional simulations will allow us to
 determine how rheological and buoyancy variations within the Western
 USA control observed deformation patterns. In combination with fully
 coupled two-phase fluid transport and reactions, the project will
