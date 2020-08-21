@@ -17,7 +17,7 @@ pressures of the Earth's interior were available to allow such
 simulations with reasonable accuracy. However, with recent advances in
 the Earth sciences and computing, we are finally at a point where it
 is possible to develop computational models of the Earth from the deep
-mantle to surface. This project is aimed at developing a framework for
+mantle to the surface. This project is aimed at developing a framework for
 building a Geodynamic Earth Models, based on the widely used community
 modeling code ASPECT that the PIs have been building for the past 8
 years. These simulations have the potential to provide enormous
