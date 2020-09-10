@@ -10,7 +10,7 @@ Hi there, this is the beginning of our project website for the NSF funded projec
 
 # Testing:
 
-You can use $$\LaTeX$$ to typeset formulas. A formula can be displayed inline, e.g. $$e=mc^2$$, or as a block:
+You can use $\LaTeX$ to typeset formulas. A formula can be displayed inline, e.g. $e=mc^2$, or as a block:
 {% raw %}
-$$\int_\Omega \nabla u \cdot \nabla v~dx = \int_\Omega fv~dx$$
+$\int_\Omega \nabla u \cdot \nabla v~dx = \int_\Omega fv~dx$
 {% endraw %}
