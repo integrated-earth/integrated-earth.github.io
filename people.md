@@ -17,6 +17,6 @@ current postdocs and students:
 
 | Patrick Ball | Thomas C. Clevenger | Arushi Saxena | 
 |:---:|:---:|:---:|
-| | | ![Arushi Saxena](../images/arushi-saxena.png){:width="100px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) |
+| ![Patrick Ball](../images/patrick-ball.jpg){:width="100px"} | | ![Arushi Saxena](../images/arushi-saxena.png){:width="100px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) |
 
 former members:
