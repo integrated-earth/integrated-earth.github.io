@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "Scaling parallel IO in ASPECT"
+date:   2021-08-15 15:18:18 +0000
+categories:
+---
+
+The goal of this post is to evaluate the performance of generating
+visualization output for large computations produced by ASPECT. ASPECT
+uses deal.II to generate the visualization output. By default we
+generate VTU files of the unstructured mesh. Instead of generating one
+file per MPI rank, the output can be *grouped* to a specified number
+of files (even a single one). These files are written using MPI I/O,
+which should allow for fast performance.
+
+# Machine setup and striping
+
+- Computations done on Frontera, nsinker benchmark, adaptive refinement
+- /scratch1/ LFS filesystem has 16 OSTs (file servers), up to 60 GB/s
+- Striping can be enabled  (-1 = maximum striping) by calling
+```
+lfs setstripe -c -1 <file or fikder>
+```
+- default striping is 1 (disabled)
+
+# Results
+
+![]({{site.baseurl}}/images/vtu-io-scaling.png)
+
+# Conclusions
+
+This little experiment showed some interesting results:
+
+1.
+
+# Future work
+
+- Compare against HDF5 output.
+
+- Check why striping is slower than writing several files.
+
+- How about 32 files instead of 16?
+
+
+# References
+
+
+- https://frontera-portal.tacc.utexas.edu/user-guide/files/
+
