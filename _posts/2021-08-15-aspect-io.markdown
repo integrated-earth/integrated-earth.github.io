@@ -16,6 +16,7 @@ which should allow for fast performance.
 # Machine setup and striping
 
 - Computations done on Frontera, nsinker benchmark, adaptive refinement
+- Computations were done on 32 nodes (56 cores each)
 - /scratch1/ LFS filesystem has 16 OSTs (file servers), up to 60 GB/s
 - Striping can be enabled  (-1 = maximum striping) by calling
 ```
@@ -31,7 +32,11 @@ lfs setstripe -c -1 <file or fikder>
 
 This little experiment showed some interesting results:
 
-1.
+- For now, grouping to 16 without striping gives the best performance. This is the default in ASPECT.
+
+- We can achieve up to 2 GB/s in performance. This is far from the theoretical maximum.
+
+- Overall, performance is good enough: The linear solver takes about 30 seconds for 800m DoFs (IO: 5 seconds).
 
 # Future work
 
@@ -45,5 +50,5 @@ This little experiment showed some interesting results:
 # References
 
 
-- https://frontera-portal.tacc.utexas.edu/user-guide/files/
+- [Frontera Guide](https://frontera-portal.tacc.utexas.edu/user-guide/files/)
 
