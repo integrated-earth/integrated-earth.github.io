@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Starting Earth Models"
-date:   2021-09-25 15:18:18 +0000
+date:   2021-08-25 15:18:18 +0000
 categories:
 ---
 
