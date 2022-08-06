@@ -12,7 +12,7 @@ update
 # Video rendering
 
 
-<iframe width="500" height="4205" src="https://www.youtube.com/embed/LRs1Qdm-FSI" frameborder="0" allowfullscreen></iframe>
+<iframe width="500" height="420" src="https://www.youtube.com/embed/LRs1Qdm-FSI" frameborder="0" allowfullscreen></iframe>
 
 See https://youtu.be/LRs1Qdm-FSI
 
