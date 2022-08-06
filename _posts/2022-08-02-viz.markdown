@@ -17,8 +17,8 @@ update
 See https://youtu.be/LRs1Qdm-FSI
 
 
-<video muted autoplay controls>
-    <source src="{{ site.my-media-path }}/fres-spherical-rotating-for-cover.mp4" type="video/mp4">
+<video width="500" height="420" muted autoplay controls>
+    <source src="https://f.tjhei.info/files/fres-spherical-rotating-for-cover.mp4" type="video/mp4">
 </video>
 
 # Interactive visualizations
