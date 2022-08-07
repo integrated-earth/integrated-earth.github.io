@@ -6,29 +6,56 @@ categories:
 ---
 
 
-update
-
+This blog post is a quick progress report on experiments on video rendering and interactive visualizations. I am including instructions on how these were generated below.
 
 # Video rendering
 
+After loading the single timestep into ParaView, we set up the following filter chain:
+
+We then save the files as .png files using File->Save Animation... and render using ffmpeg:
+
+```
+ffmpeg -framerate 25 -i a.%04d.png -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4
+```
+
+
+## Youtube version
 
 <iframe width="500" height="420" src="https://www.youtube.com/embed/LRs1Qdm-FSI" frameborder="0" allowfullscreen></iframe>
 
-See https://youtu.be/LRs1Qdm-FSI
+See [https://youtu.be/LRs1Qdm-FSI](https://youtu.be/LRs1Qdm-FSI)
 
+## Self-hosted and directly embedded
 
 <video width="500" height="420" muted autoplay controls>
     <source src="https://f.tjhei.info/files/fres-spherical-rotating-for-cover.mp4" type="video/mp4">
 </video>
 
+
 # Interactive visualizations
 
+After experimenting with different technologies, we are quite happy with what [ParaView Glance](https://kitware.github.io/glance/index.html) has to offer. It can open ``vtkjs`` files (these can be obtained by exporting directly from ParaView by clicking File -> Export Scene...) directly and allows the user to toggle visibility and rendering style for individual pieces of the visualization much like in ParaView itself.
 
+You can generate state files by going to [our Glance Instance](https://f.tjhei.info/glance), opening a local vtkjs file, and clicking "save state".
+To host the examples online, upload the state file to f.tjhei.info and provide the address to the file in the link in the form
+```
+https://f.tjhei.info/glance/?name=NAME&url=URL
+```
+where you replace NAME by a filename and URL by the full address on where the file can be downloaded from. Note that NAME has to have the same file extension as the file to load (in our examples it is ``.glance``). Finally, the URL and the instance of Glance have to be on the same server (single origin browser policy), so files need to be served from f.tjhei.info.
+
+Here are two examples (click the image to open glance):
+
+[![Faulting Demo](/images/glance-fault.png)](https://f.tjhei.info/glance/?name=faulting-demo.glance&url=https://f.tjhei.info/view-faulting-test/202278_17-26-18.glance)
+[![Spherical Demo](/images/glance-spherical.png)](https://f.tjhei.info/glance/?name=spherical-cover-v2.glance&url=https://f.tjhei.info/view-spherical-cover/spherical-cover-v2.glance)
 
 # Future work
 
+- Test loading data files directly (VTI, etc.)
+- Test the animation support
+- Test problems with surface deformation
+- Using resampled spherical models
+
 # References
 
-
-- [Frontera Guide](https://frontera-portal.tacc.utexas.edu/user-guide/files/)
+- [ParaView Glance](https://kitware.github.io/glance/index.html)
 
