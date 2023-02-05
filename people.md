@@ -13,11 +13,12 @@ permalink: /people/
 |:---:|:---:|:---:|:---:|
 |  ![Timo Heister](../images/timo-heister.jpg){:width="100px"} <br> Clemson University <br> [homepage](http://www.math.clemson.edu/~heister/) | ![Tony Lowry](../images/TonyLowry.jpg){:width="125px"} <br> Utah State University <br> [homepage](http://aconcagua.geol.usu.edu/~arlowry/) | ![John Naliboff](../images/john-naliboff.jpg){:width="100px"} <br> New Mexico Tech <br> [homepage](https://geodynamics.org/cig/about/people/profile-naliboff/) | ![Derek Schutt](../images/derek-schutt.jpg){:width="100px"} <br> Colorado State University <br> [homepage](https://warnercnr.colostate.edu/person/?user=bgxUknkE3b4zIeTCAXGX5Q%3D%3D) |
 
-current postdocs and students:
+Current postdocs and students:
 
-| Patrick Ball | Arushi Saxena | 
-|:---:|:---:|
-| ![Patrick Ball](../images/patrick-ball.jpg){:width="100px"} | ![Arushi Saxena](../images/arushi-saxena.png){:width="100px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) |
+| Patrick Ball | Arushi Saxena | Vladimir Yushutin |
+|:---:|:---:|:---:|
+| ![Patrick Ball](../images/patrick-ball.jpg){:width="100px"} | ![Arushi Saxena](../images/arushi-saxena.png){:width="100px"} <br> University of Florida <br> [homepage](http://www.ceri.memphis.edu/people/asaxena/) | Clemson University |
 
 former members:
 - Thomas C. Clevenger
+- Jiaqi Zhang
