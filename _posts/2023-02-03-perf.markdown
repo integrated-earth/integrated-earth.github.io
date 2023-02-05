@@ -1,0 +1,183 @@
+---
+layout: post
+title:  "A quick introduction to performance testing"
+date:   2023-02-03 15:00:00 +0000
+categories:
+---
+
+Today I would like to show how one get a quick estimate on the performance impact on a specific code change using the Linux tool ``perf`` (see [perf tutorial](https://perf.wiki.kernel.org/index.php/Tutorial) for an introduction).
+
+# The Setup
+
+I am considering the ASPECT pull request [#5044](https://github.com/geodynamics/aspect/pull/5044) that removes
+an unnecessary copy of a vector inside the linear solver. I was curious how much of a difference this makes
+in practice.
+
+First, we need to pick a suitable example prm file to run. The change
+is inside the geometric multigrid solver, so we need to run a test
+that uses it. We also want it to be large enough that we can easily
+time it without too much noise. For this, we are going to pick
+[nsinker
+benchmark](https://github.com/geodynamics/aspect/tree/main/benchmarks/nsinker)
+and slightly modify the file (disable graphical output, disable
+adaptive refinement, choose 6 global refinements). See
+[here](https://gist.github.com/tjhei/d895c50e2481d7f3b8013c69e9cf17a8)
+for the file.
+
+We can only get a good estimate for the performance difference, if we
+compare optimized versions. That's why we need to compile both
+versions of ASPECT (with and without the change) in [optimized
+mode](https://aspect-documentation.readthedocs.io/en/latest/user/run-aspect/debug-mode.html?highlight=release). We
+also use [native
+optimizations](https://aspect-documentation.readthedocs.io/en/latest/user/methods/geometric-multigrid.html?highlight=candi#geometric-multigrid)
+as recommended for geometric multigrid.
+
+# A first test
+
+With perf correctly configured, we can get a first idea about the program by running
+```
+perf stat ./aspect test.prm
+```
+and get something like the following output
+```
+perf stat  ../aspect-new test.prm 
+-----------------------------------------------------------------------------
+-- This is ASPECT, the Advanced Solver for Problems in Earth's ConvecTion.
+--     . version 2.5.0-pre
+--     . using deal.II 9.4.1 (dealii-9.4, 6a1115bbf6)
+--     .       with 32 bit indices and vectorization level 2 (256 bits)
+--     . using Trilinos 13.2.0
+--     . using p4est 2.3.2
+--     . running in OPTIMIZED mode
+--     . running with 1 MPI process
+-----------------------------------------------------------------------------
+
+Loading shared library <./libnsinker.so>
+
+Vectorization over 4 doubles = 256 bits (AVX), VECTORIZATION_LEVEL=2
+-----------------------------------------------------------------------------
+-- For information on how to cite ASPECT, see:
+--   https://aspect.geodynamics.org/citing.html?ver=2.5.0-pre&mf=1&sha=&src=code
+-----------------------------------------------------------------------------
+Number of active cells: 262,144 (on 7 levels)
+Number of degrees of freedom: 8,861,381 (6,440,067+274,625+2,146,689)
+
+*** Timestep 0:  t=0 seconds, dt=0 seconds
+   Solving Stokes system... 
+    GMG coarse size A: 81, coarse size S: 8
+    GMG n_levels: 7
+    Viscosity range: 0.01 - 100
+    GMG workload imbalance: 1
+    Stokes solver: 28+0 iterations.
+    Schur complement preconditioner: 29+0 iterations.
+    A block preconditioner: 29+0 iterations.
+      Relative nonlinear residual (Stokes system) after nonlinear iteration 1: 0.999967
+
+
+   Postprocessing:
+     System matrix memory consumption:  101.42 MB
+
+Termination requested by criterion: end time
+
+
++---------------------------------------------+------------+------------+
+| Total wallclock time elapsed since start    |       117s |            |
+|                                             |            |            |
+| Section                         | no. calls |  wall time | % of total |
++---------------------------------+-----------+------------+------------+
+| Assemble Stokes system rhs      |         1 |      15.9s |        14% |
+| Build Stokes preconditioner     |         1 |      5.96s |       5.1% |
+| Initialization                  |         1 |     0.106s |         0% |
+| Postprocessing                  |         1 |   0.00504s |         0% |
+| Setup dof systems               |         1 |        10s |       8.5% |
+| Setup initial conditions        |         1 |      8.58s |       7.3% |
+| Setup matrices                  |         1 |      3.37s |       2.9% |
+| Solve Stokes system             |         1 |      68.1s |        58% |
++---------------------------------+-----------+------------+------------+
+
+-- Total wallclock time elapsed including restarts: 117s
+-----------------------------------------------------------------------------
+-- For information on how to cite ASPECT, see:
+--   https://aspect.geodynamics.org/citing.html?ver=2.5.0-pre&mf=1&sha=&src=code
+-----------------------------------------------------------------------------
+
+ Performance counter stats for '../aspect-new test.prm':
+
+        117,495.66 msec task-clock                #    0.987 CPUs utilized          
+             1,134      context-switches          #    9.651 /sec                   
+                44      cpu-migrations            #    0.374 /sec                   
+         4,838,162      page-faults               #   41.177 K/sec                  
+   412,324,642,261      cycles                    #    3.509 GHz                    
+ 1,021,213,808,438      instructions              #    2.48  insn per cycle         
+   122,571,132,407      branches                  #    1.043 G/sec                  
+       338,189,797      branch-misses             #    0.28% of all branches        
+
+     119.093952900 seconds time elapsed
+
+     112.405895000 seconds user
+       5.087723000 seconds sys
+```
+
+As you can see, we are indeed running in optimized mode, with
+vectorization enabled, and we are solving a 3d problem with 8.8
+million degrees of freedom. It takes about 68 seconds to solve the
+Stokes system with a single MPI rank.
+
+# The real setup
+
+For a more realistic test, we will run the same program with 4 MPI ranks (this way at least some small cost for possible changes in communication are accounted for) by using ``mpirun -n 4 ./aspect``. Finally,
+``perf`` supports running the program several times and averaging the stats. This turns out to be necessary,
+as the change is otherwise too small to detect.
+
+Our final command line is thus
+```
+perf stat -r 10  mpirun -n 4 ../aspect test.prm
+```
+
+# The result
+
+The output without the patch is
+```
+Performance counter stats for 'mpirun -n 4 ../aspect-old test.prm' (10 runs):
+
+        182,419.23 msec task-clock                #    4.010 CPUs utilized            ( +-  0.44% )
+             1,042      context-switches          #    5.934 /sec                     ( +-  7.12% )
+               137      cpu-migrations            #    0.780 /sec                     ( +-  4.94% )
+         2,016,941      page-faults               #   11.485 K/sec                    ( +-  0.36% )
+   536,241,394,539      cycles                    #    3.054 GHz                      ( +-  0.25% )
+ 1,180,113,849,900      instructions              #    2.25  insn per cycle           ( +-  0.12% )
+   159,889,552,768      branches                  #  910.491 M/sec                    ( +-  0.24% )
+       446,788,836      branch-misses             #    0.28% of all branches          ( +-  0.30% )
+
+            45.494 +- 0.200 seconds time elapsed  ( +-  0.44% )
+```
+while the new version gives
+```
+
+ Performance counter stats for 'mpirun -n 4 ../aspect-new test.prm' (10 runs):
+
+        174,309.09 msec task-clock                #    3.880 CPUs utilized            ( +-  0.21% )
+             1,350      context-switches          #    7.787 /sec                     ( +-  4.85% )
+               102      cpu-migrations            #    0.588 /sec                     ( +-  5.06% )
+         1,993,599      page-faults               #   11.499 K/sec                    ( +-  0.38% )
+   522,637,629,676      cycles                    #    3.015 GHz                      ( +-  0.11% )
+ 1,170,583,946,847      instructions              #    2.24  insn per cycle           ( +-  0.09% )
+   157,504,211,601      branches                  #  908.506 M/sec                    ( +-  0.17% )
+       448,626,534      branch-misses             #    0.29% of all branches          ( +-  0.23% )
+
+           44.9306 +- 0.0919 seconds time elapsed  ( +-  0.20% )
+```
+
+# Conclusion
+
+The new code executes about 1% fewer instructions, the total runtime
+decreases from 45.5 to 44.9 seconds (with some uncertainty, see
+above). The Stokes solve takes around 26 seconds (not shown), which
+means the patch improves the Stokes solve by about 2%.
+
+What is not taking into account here is that the construction and
+usage of the vector also causes some MPI communication, which is
+potentially more expensive when running large simulations on more than
+a single node.
+
+<em>(written by [Timo Heister](https://www.math.clemson.edu/~heister/))</em>
