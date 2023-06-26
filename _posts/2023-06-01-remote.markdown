@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Remote Rendering Setup"
+date:   2023-06-01 10:00:00 +0000
+categories:
+---
+
+This post summarizes the steps needed for parallel remote rendering using ParaView. With this setup you can
+visualize very large simulation data that is residing on a workstation while visualizing it over the internet
+on a laptop.
+
+# Setup server
+
+After installing ParaView on the server, go into the bin/ folder and run (over an ssh terminal):
+
+```
+./mpiexec -np 16 ./pvserver -display :0
+```
+
+Note that you need to use the included ``mpiexec``, which is likely different than the system MPI. This will
+create 16 processes that will take care of loading, filtering, and rendering the data.
+
+# Connectivity
+
+To connect to the server, you must be able to reach the machine (and port 11111) directly. This can be achieved
+by connecting to the school VPN where the workstation sits, or alternatively using [tailscale](https://tailscale.com).
+
+# On the client
+
+You will need to install the identical version of ParaView that you have running on the server. Simply open it up
+and connect using "File", "Connect".
+
+It is useful to enable debug output using "Edit", "Settings", "Render View", "Show Annotation". After loading
+files it will look something like this:
+
+![]({{site.baseurl}}/images/remote-rendering.png)
+
+# References
+
+- https://docs.paraview.org/en/latest/ReferenceManual/parallelDataVisualization.html
+
+<em>(written by [Timo Heister](https://www.math.clemson.edu/~heister/))</em>
