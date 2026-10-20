@@ -5,26 +5,84 @@ date:   2026-07-01 11:11:11 +0000
 categories:
 ---
 
+High-resolution geodynamic simulations produce rich three-dimensional
+data, but that detail can make the results difficult to share. A model
+may generate many gigabytes of output across thousands of MPI
+ranks. Loading that data in a browser can take too long, and the files
+may be too large for a responsive interactive experience.
 
+As part of the Integrated Earth project, we have been building tools
+and workflows to make these simulations easier to explore online. The
+work has two connected parts: preparing simulation output at a size
+and format suited to interactive viewing, and presenting the resulting
+models and animations in a browser.
 
-Videos and Interactive
+## Preparing simulation output for the web
 
-As part of this project, ASPECT learned to output into an intermediate data format that the resampling tool can resample to lower resolution.
+Resampling data to a lower resolution is essential for interactive
+visualization. Smaller files take less time to transfer and parse, and
+require less memory in the browser. The challenge is to reduce the
+data while preserving the features that make the model useful to
+inspect.
 
-at https://github.com/integrated-earth/viz-tools can process and resample to structured and low resolution.
+ParaView includes resampling filters, but the workflow becomes
+difficult for spherical data and data with topography. ASPECT can
+write reference-frame output together with a deformation field;
+ParaView can then use that information when resampling. To make this
+process more practical, ASPECT has also been extended to write an
+intermediate format that can be processed by the project's
+[viz-tools](https://github.com/integrated-earth/viz-tools)
+utilities. The tools resample the data to structured, lower-resolution
+output, including for spherical models.
 
+In ASPECT, the visualization postprocessor can write the mesh in its
+undeformed reference configuration along with the mesh displacement
+and velocity. The displacement describes how the mesh has moved from
+that reference configuration, allowing ParaView to account for the
+deformed surface while resampling. For example, this configuration
+requests those fields in gnuplot output:
 
-interactive starting earth models
-10GB of vtk output, thousands of MPI ranks
+```text
+subsection Postprocess
+  set List of postprocessors = visualization
 
+  subsection Visualization
+    set Output undeformed mesh = true
+    set Output mesh displacement = true
+  end
+end
+```
 
+This gives us a route from large simulation output to datasets that
+are more manageable for interactive rendering, without requiring every
+browser visitor to load the full-resolution model.
 
-All of these models and animations developed as part of this project are part of the “visualization gallery” hosted at https://f.tjhei.info/viz-gallery/index.html 
+## Interactive Starting Earth models
 
-We developed the technology to resample to (low resolution) structured grids for box and spherical models as reported in previous annual reports. This year, we extended the vtk.js based online visualization tool (available at https://github.com/integrated-earth/viz-tools/tree/main/vtkjs/AdvancedSceneExplorer) to support time dependent data. For an example, please see https://f.tjhei.info/viz-gallery/allken.html . We are planning to upload and render dynamic global simulations as we complete them in the next period.
+One example of the scale involved is the visualization of one of the
+Starting Earth models and its input data developed for this
+project. These simulations can produce around 10 GB of VTK output and
+use thousands of MPI ranks. We have made interactive versions
+available in the [starting Earth
+models](https://f.tjhei.info/FRES-SEM/), so visitors can easily
+inspect the model in a browser.
 
+## A gallery of models and animations
 
+The [visualization
+gallery](https://f.tjhei.info/viz-gallery/index.html) brings together
+models and animations developed during the project. It provides a
+place to browse results from different simulations and see how the
+model fields evolve over time.
 
+The gallery uses a browser-based vtk.js scene viewer, available in the
+[viz-tools
+repository](https://github.com/integrated-earth/viz-tools/tree/main/vtkjs/AdvancedSceneExplorer). The
+viewer was developed to support time-dependent data, which makes it
+possible to present animations alongside static scenes. For example,
+[this animation](https://f.tjhei.info/viz-gallery/allken.html) shows
+one of the time-dependent visualizations.
 
-
-
+Together, the resampling workflow and the scene viewer help bridge the
+gap between large-scale simulation output and an interactive web
+experience.
