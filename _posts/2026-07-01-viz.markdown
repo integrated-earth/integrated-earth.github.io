@@ -1,0 +1,30 @@
+---
+layout: post
+title:  "Visualization Efforts"
+date:   2026-07-01 11:11:11 +0000
+categories:
+---
+
+
+
+Videos and Interactive
+
+As part of this project, ASPECT learned to output into an intermediate data format that the resampling tool can resample to lower resolution.
+
+at https://github.com/integrated-earth/viz-tools can process and resample to structured and low resolution.
+
+
+interactive starting earth models
+10GB of vtk output, thousands of MPI ranks
+
+
+
+All of these models and animations developed as part of this project are part of the “visualization gallery” hosted at https://f.tjhei.info/viz-gallery/index.html 
+
+We developed the technology to resample to (low resolution) structured grids for box and spherical models as reported in previous annual reports. This year, we extended the vtk.js based online visualization tool (available at https://github.com/integrated-earth/viz-tools/tree/main/vtkjs/AdvancedSceneExplorer) to support time dependent data. For an example, please see https://f.tjhei.info/viz-gallery/allken.html . We are planning to upload and render dynamic global simulations as we complete them in the next period.
+
+
+
+
+
+
