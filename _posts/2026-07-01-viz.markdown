@@ -39,8 +39,7 @@ In ASPECT, the visualization postprocessor can write the mesh in its
 undeformed reference configuration along with the mesh displacement
 and velocity. The displacement describes how the mesh has moved from
 that reference configuration, allowing ParaView to account for the
-deformed surface while resampling. For example, this configuration
-requests those fields in gnuplot output:
+deformed surface while resampling:
 
 ```text
 subsection Postprocess
